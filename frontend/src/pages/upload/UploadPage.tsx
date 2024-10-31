@@ -74,7 +74,7 @@ export default function UploadPage() {
             .map(row => {
               const rowData: GridData = {};
               headers.forEach((header, index) => {
-                rowData[header] = row[index]?.trim() || '';
+                rowData[header] = row[index]?.trim() ?? '';
               });
               return rowData;
             });
@@ -107,7 +107,7 @@ export default function UploadPage() {
       <Paper className="p-6 space-y-6 relative" shadow="sm" radius="md">
         <UploadFile setFile={setFile} />
 
-        {gridData.length > 0 && (
+        {gridData.length && (
           <div className="mt-8">
             <Title order={3} className="mb-4">
               Claims Preview

@@ -73,7 +73,7 @@ api.post('/', async (c): Promise<APIResponse<UploadResponse>> => {
     })
   } catch (error) {
     const err = error as Error
-    console.log(err)
+    console.error(err)
     return c.json({ error: err.message }, 500)
   }
 })

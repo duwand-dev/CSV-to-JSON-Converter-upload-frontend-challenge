@@ -9,7 +9,7 @@ import {
 } from '@mantine/core';
 import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { format } from 'date-fns';
 import { useNavigate } from "react-router-dom";
 import { serverURL } from '~/config';
@@ -74,7 +74,7 @@ const MrfListPage = () => {
         const response = await axios.get<MRFFile[]>('http://localhost:8080/mrf-files');
         setFiles(response.data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Error fetching files');
+        setError(err instanceof AxiosError ? `Error fetching files: ${err.message}` : err.message);
       } finally {
         setLoading(false);
       }
