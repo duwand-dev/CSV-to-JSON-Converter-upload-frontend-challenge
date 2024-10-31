@@ -1,10 +1,13 @@
 # deps
 node_modules
 
+mrf_files
+
 # build
 dist
 lib
 *.local
+build
 
 # env
 .env
@@ -12,3 +15,5 @@ lib
 
 # misc
 .DS_Store
+
+.vscode
